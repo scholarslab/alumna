@@ -1,0 +1,13 @@
+{{#alpha}} <tr> {{/alpha}}
+    <td width='60'> {{label}} </td>
+    {{#rows}}
+    <td{{#colspan}} colspan='{{colspan}}'{{/colspan}}>
+        {{value}}
+    </td>
+    {{/rows}}
+    {{^rows}}
+    <td{{#colspan}} colspan='{{colspan}}'{{/colspan}}{{^colspan}} width='60'{{/colspan}}>
+        {{value}}
+    </td>
+    {{/rows}}
+{{#omega}} </tr> {{/omega}}

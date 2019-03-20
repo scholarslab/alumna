@@ -1,0 +1,8 @@
+[database]
+host     = "localhost"
+username = ""
+password = ""
+name     = ""
+prefix   = ""
+charset  = "utf8"
+port     = "3306"

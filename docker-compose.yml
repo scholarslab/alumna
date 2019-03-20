@@ -1,0 +1,38 @@
+version: '2'
+
+services:
+  alumna_db:
+    image: mysql:5.7
+    container_name: alumna_db
+    volumes:
+      - ./initial_sql/alumna_production.sql:/docker-entrypoint-initdb.d/alumna_production.sql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    labels:
+      - "traefik.enable=false"
+
+  alumna_php:
+    build:
+        context: .
+    image: php:5.3-apache
+    container_name: alumna_php
+    depends_on:
+      - alumna_db
+    volumes:
+      - ./current:/var/www/html
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=thenetwork"
+      - "traefik.port=80"
+      - "traefik.backend=alumna_php"
+      - "traefik.frontend.rule=Host:alumna.lib.virginia.edu"
+
+networks:
+  default:
+    external:
+      name: thenetwork
