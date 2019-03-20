@@ -25,6 +25,24 @@ Requirements:
 Clone this repository
 - `git clone https://github.com/scholarslab/alumna.git`
 
+Create a `.env` file with the following:
+
+```
+  MYSQL_ROOT_PASSWORD=replace_me_with_something
+  MYSQL_DATABASE=alumna_production
+  MYSQL_USER=replace_me_with_a_user_name
+  MYSQL_PASSWORD=replace_me_with_a_password
+
+```
+
+Create a `current/config/database.ini` file using the `current/config/database.ini.changeme` file as a template.
+- use `alumna_db` or the current container name for the MySQL container as the 'host' value.
+- use the 'MYSQL_USER' value from the `.env` file for the 'username' field
+- use the 'MYSQL_PASSWORD' value from the `.env` file for the 'password' field
+- use the 'MYSQL_DATABASE' value from the `.env` file for the 'name' field
+- leave the 'prefix' field empty
+- leave the 'charset' and 'port' values as the default
+
 Run docker-compose
 - `docker-compose up`
 
@@ -33,6 +51,24 @@ Run docker-compose
 
 Clone this repository
 - `git clone https://github.com/scholarslab/alumna.git`
+
+Create a `.env` file with the following:
+
+```
+  MYSQL_ROOT_PASSWORD=replace_me_with_something
+  MYSQL_DATABASE=alumna_production
+  MYSQL_USER=replace_me_with_a_user_name
+  MYSQL_PASSWORD=replace_me_with_a_password
+
+```
+
+Create a `current/config/database.ini` file using the `current/config/database.ini.changeme` file as a template.
+- use `alumna_db` or the current container name for the MySQL container as the 'host' value.
+- use the 'MYSQL_USER' value from the `.env` file for the 'username' field
+- use the 'MYSQL_PASSWORD' value from the `.env` file for the 'password' field
+- use the 'MYSQL_DATABASE' value from the `.env` file for the 'name' field
+- leave the 'prefix' field empty
+- leave the 'charset' and 'port' values as the default
 
 Run docker-compose
 - `docker-compose up -d`
